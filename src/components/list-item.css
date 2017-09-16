@@ -1,0 +1,37 @@
+.story-item {
+    display: flex;
+    width: 100%;
+    border-bottom: thin solid #999;
+    padding: .5rem 0 .5rem 0;
+    align-items: center;
+    font-size: 16pt;
+    color: #1a1a1a;
+}
+
+.story-content {
+    flex: 1;
+}
+
+.story-index {
+    margin: 0 .75rem;
+    
+}
+
+.story-header__title {
+    text-decoration: none;
+    color: #1a1a1a;
+}
+
+.story-header__title:visited {
+    color: #828282;
+}
+
+.story-details {
+    flex: 1;
+    display: flex;
+    font-size: 10pt;
+}
+
+.story-details__author {
+    margin-right: .25rem;
+}

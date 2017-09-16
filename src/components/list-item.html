@@ -1,0 +1,16 @@
+<template class="story-item" bindable="item, index"> <!-- Data binding with an html-only custom element, Aurelia syntax --> 
+    <require from="./time-value-converter"></require>
+    <require from="./list-item.css"></require>
+    <span class="story-index">
+        ${index+1}.
+    </span>
+    <span class="story-content">
+        <div class="story-header">
+            <a href="${item.url}" class="story-header__title">${item.title}</a> <!-- ${variable} syntax is Aurelia string interpolation -->
+        </div>
+        <div class="story-details">
+            <span class="story-details__author">${item.by}</span>
+            <span class="story-details__time">${item.time | time}</span> <!-- Pass the timestamp into the time value converter, Aurelia syntax -->
+        </div>
+    </span>
+</template>

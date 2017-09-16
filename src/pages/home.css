@@ -1,0 +1,27 @@
+html, body {
+    margin: 0;
+}
+
+.header {
+    background-color: #ff6600;
+    color: #000000;
+    padding: .25rem 0;
+}
+
+.header__title {
+    padding-left: .5rem;
+    font-size: 16pt;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.stories {
+    list-style: none;
+    background-color: rgb(246, 246, 239);
+    color: #828282;
+    padding: 0;
+}

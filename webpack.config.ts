@@ -1,6 +1,7 @@
 import * as path from 'path';
 import * as webpack from 'webpack';
 import { AureliaPlugin } from 'aurelia-webpack-plugin';
+import * as OfflinePlugin from 'offline-plugin';
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const config: webpack.Configuration = {
@@ -8,6 +9,10 @@ const config: webpack.Configuration = {
         app: 'aurelia-bootstrapper'
     },
     devtool: 'inline-source-map',
+    devServer: {
+        contentBase: './dist',
+        hot: false
+    },
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].js',
@@ -47,12 +52,14 @@ const config: webpack.Configuration = {
     plugins: [
         new AureliaPlugin({
             aureliaApp: 'main'
+
         }),
         new CopyWebpackPlugin([
             {
                 from: 'index.html'
             }
-        ])
+        ]),
+        new OfflinePlugin()
     ]
 }
 

@@ -4,6 +4,7 @@
     "target": "es5",
     "strict": true,
     "sourceMap": true,
+    "noImplicitAny": false,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "lib": [

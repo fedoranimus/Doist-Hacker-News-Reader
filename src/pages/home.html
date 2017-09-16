@@ -1,3 +1,14 @@
 <template>
-  <h1>Doist Hacker News Reader</h1>
+  <!-- Require different files and modules necessary; could also make these global resources if they need to be used in many places -->
+  <require from="../components/list-item.html"></require>
+  <require from="./home.css"></require>
+  <require from="../components/infinite-scroll"></require>
+
+  <!-- Use infinite-scroll custom attribute, provide a callback funtion and a poor man's debounce binding -->
+  <ul class="stories container" infinite-scroll="callback.call: fetchMore(); enabled.bind:!isFetching">
+    <li repeat.for="story of stories"> <!-- Aurelia looping syntax based on VM -->
+        <!-- Pass in the necessary information to the custom element/component; $index is Aurelia syntax for loop index -->
+        <list-item index.bind=$index item.bind="story"></list-item>
+    </li>
+  </ul>
 </template>
