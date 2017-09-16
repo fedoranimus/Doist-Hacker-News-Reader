@@ -11,6 +11,7 @@
         <list-item index.bind=$index item.bind="story"></list-item>
     </li>
   </ul>
+  <!-- show.bind is how Aurelia toggles display of an element based on a function; if.bind would add/remove from DOM -->
   <div class="stories__zero-state container" show.bind="!hasStories">
     <span>No Stories Available</span>
   </div>
