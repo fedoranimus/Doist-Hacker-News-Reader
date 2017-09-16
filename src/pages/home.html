@@ -5,10 +5,13 @@
   <require from="../components/infinite-scroll"></require>
 
   <!-- Use infinite-scroll custom attribute, provide a callback funtion and a poor man's debounce binding -->
-  <ul class="stories container" infinite-scroll="callback.call: fetchMore(); enabled.bind:!isFetching">
+  <ul show.bind="hasStories" class="stories container" infinite-scroll="callback.call: fetchMore(); enabled.bind:!isFetching">
     <li repeat.for="story of stories"> <!-- Aurelia looping syntax based on VM -->
         <!-- Pass in the necessary information to the custom element/component; $index is Aurelia syntax for loop index -->
         <list-item index.bind=$index item.bind="story"></list-item>
     </li>
   </ul>
+  <div class="stories__zero-state container" show.bind="!hasStories">
+    <span>No Stories Available</span>
+  </div>
 </template>

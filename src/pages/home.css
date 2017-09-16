@@ -25,3 +25,10 @@ html, body {
     color: #828282;
     padding: 0;
 }
+
+.stories__zero-state {
+    display: flex;
+    align-items: center;
+    font-size: 24pt;
+    color: #828282;
+}

@@ -37,3 +37,5 @@ Chrome debug tools can be used to easily demonstrate throttled network requests 
 1. Load and cache data for the infinite scroll in the background to provide a smoother and better offline experience
 1. Have a more module cache for requests
 1. Have smaller, more directed check-ins
+1. Better offline support for legacy browsers and Edge (AppCache fallbacks)
+1. Better cache management (Version/Delete cache)

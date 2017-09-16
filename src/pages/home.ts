@@ -1,4 +1,4 @@
-import { autoinject } from 'aurelia-framework';
+import { autoinject, computedFrom } from 'aurelia-framework';
 import { Api, Story } from '../services/api';
 
 @autoinject // Autoinject is for DI
@@ -16,7 +16,7 @@ export class Home {
 
     // Aurelia Component Lifecycle Event - Occurs after Bind (Data Binding) but prior to Attached (DOM Manipulation)
     async activate() {
-        await this.populate();
+        await this.populate(); // Initially load a collection of stories
     }
 
     // Initialize the feed with the collection of New Story IDs and the first 10 stories.
@@ -44,5 +44,10 @@ export class Home {
             const story = await this.api.fetchStory(id); // Let's actually get the story for this ID
             this.stories.push(story); // Update the collection
         }));
+    }
+
+    @computedFrom('this.stories') // Stop aurelia from dirty-checking
+    get hasStories() {
+        return this.stories.length > 0;
     }
 }

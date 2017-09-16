@@ -2,9 +2,9 @@ import { autoinject, bindable } from 'aurelia-framework';
 
 @autoinject
 export class InfiniteScrollCustomAttribute {
-    private isScrolling = false; // are we scrolling - state management?
+    private isScrolling = false; // are we scrolling - state management
     @bindable callback: Function; // callback function for attribute
-    @bindable enabled = true; // Should we fetch new data - state management?
+    @bindable enabled = true; // Should we fetch new data - state management
     private buffer = 50; // number of pixels before the bottom
 
     constructor(private element: Element) {
@@ -39,12 +39,12 @@ export class InfiniteScrollCustomAttribute {
 
     // Lifecycle Event - Attached to the DOM, ready for manipulation
     attached() {
-        addEventListener('scroll', this.onScrollChanged);
+        addEventListener('scroll', this.onScrollChanged); // Attach the scroll event listener to the window scroll - NOTE: This will only allow a single use in a given view
         this.onScrollChanged(); // Do an initial check to see if the browser is taller than our list
     }
 
     // Lifecycle Event - Detached from the DOM
     detached() {
-        removeEventListener('scroll', this.onScrollChanged);
+        removeEventListener('scroll', this.onScrollChanged); // Remove the scroll event listener
     }
 }
